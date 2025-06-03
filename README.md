@@ -1,11 +1,1 @@
-# RAG_test
-
-大型語言模型處理單純的序列問題能力較弱，容易產生幻覺，因此嘗試設計一套方式增強回答的正確性。
-
-這裡的情境是給DNA序列，請語言模型協助轉換成胺基酸序列。
-
-經過測試，事先DNA處理好codon的形式方能順利透過RAG得出正確對應的氨基酸，否則容易產生幻覺。
-
-這裡我事先用逗號將序列轉成codon，並且利用sys promt給予嚴格的指令，盡量避免產生幻覺。
-
-此外，設計的codon chart，也隱藏不該出現的DNA序列"WASD"對應的氨基酸序列為"TEST"，來確保語言模型確實有使用到RAG的資訊。
+This repository demonstrates how to apply Retrieval-Augmented Generation (RAG) to improve the accuracy of large language models when translating raw DNA sequences into amino acid chains. By indexing a curated codon table (and, optionally, other biological knowledge sources) as a vector store, the system retrieves precise codon-to-amino-acid mappings at inference time. The language model then focuses solely on sequence segmentation and formatting—drastically reducing hallucination errors and boosting overall translation fidelity.
